@@ -35,7 +35,7 @@ export function showMap() {
 
   // 2. 随机生成所选配置对应数量的雷
   const mineArray = initMine();
-  console.log("有雷格子的索引", mineArray);
+  // console.log("有雷格子的索引", mineArray);
 
   // 3. 生成所选配置的表格
   const table = createTable(mineArray);
@@ -110,7 +110,7 @@ function createTable(mineArray) {
     table.appendChild(tr);
   }
 
-  console.log("所有格子信息", tableData);
+  // console.log("所有格子信息", tableData);
 
   return table;
 }
