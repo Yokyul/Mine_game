@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/reset.css">
+  <link rel="stylesheet" href="./css/index.css">
+  <title>扫雷游戏</title>
+</head>
+
+<body>
+  <div class="container">
+    <h1>扫雷</h1>
+    <div class="level">
+      <button class="active">初级</button>
+      <button>中级</button>
+      <button>高级</button>
+    </div>
+    <div class="info">总雷数：<span class="mineNum"></span></div>
+    <div class="info">插旗数：<span class="flagNum"></span></div>
+
+    <!-- 扫雷区域，通过 JS 动态生成 -->
+    <div class="mineArea"></div>
+  </div>
+
+  <script src="./index.js" type="module"></script>
+</body>
+
+</html>
