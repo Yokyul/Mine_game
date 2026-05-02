@@ -132,3 +132,85 @@ td > div.eight {
   background: #d9d9d9;
   color: #22ee0f;
 }
+
+/* 排行榜样式 */
+.leaderboard {
+  max-width: 360px;
+  margin: 30px auto;
+  padding: 20px;
+  background: #f5f5f5;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.leaderboard h2 {
+  text-align: center;
+  font-size: 22px;
+  font-weight: 400;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.leaderboard-tabs {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.leaderboard-tabs .lb-tab {
+  padding: 4px 12px;
+  background: #ddd;
+  color: #555;
+  border: none;
+  border-radius: 3px;
+  margin: 0 4px;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.leaderboard-tabs .lb-tab.active {
+  background: #02a4ad;
+  color: white;
+}
+
+.lb-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  margin: 0 auto;
+  border-spacing: 0;
+}
+
+.lb-table thead tr {
+  background: #02a4ad;
+  color: white;
+}
+
+.lb-table th,
+.lb-table td {
+  padding: 8px 12px;
+  text-align: center;
+  font-size: 14px;
+  border: none;
+  font-weight: normal;
+  width: auto;
+  height: auto;
+  background: none;
+  border-color: transparent;
+  line-height: normal;
+  cursor: default;
+}
+
+.lb-table tbody tr:nth-child(even) {
+  background: #f9f9f9;
+}
+
+.lb-table tbody tr:hover {
+  background: #e8f8f9;
+}
+
+.lb-empty {
+  text-align: center;
+  color: #999;
+  font-size: 14px;
+  padding: 20px 0;
+}

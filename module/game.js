@@ -2,13 +2,23 @@ import { $, $$ } from "../utils/tool.js";
 import { config } from "../config/index.js";
 import { mineAreaDom, showMap } from "./ui.js";
 import { searchArea, startFlag } from "./play.js";
+import { resetTimer } from "./timer.js";
 
 export let curLevel = config.easy; // 游戏难度
+let curLevelKey = "easy"; // 当前难度的 key
+
+/**
+ * 获取当前难度的 key
+ */
+export function getLevelKey() {
+  return curLevelKey;
+}
 
 /**
  * 游戏初始化
  */
 export function init() {
+  resetTimer();
   showMap();
 
   // 因为游戏结束会移除事件。所以每次初始化时，都要重新绑定事件
@@ -45,12 +55,15 @@ export function bindEvent() {
     switch (e.target.innerHTML) {
       case "初级":
         curLevel = config.easy;
+        curLevelKey = "easy";
         break;
       case "中级":
         curLevel = config.normal;
+        curLevelKey = "normal";
         break;
       case "高级":
         curLevel = config.hard;
+        curLevelKey = "hard";
         break;
     }
 

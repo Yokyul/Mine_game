@@ -1,6 +1,8 @@
-import { curLevel, removeEvent } from "./game.js";
+import { curLevel, removeEvent, getLevelKey } from "./game.js";
 import { $$ } from "../utils/tool.js";
 import { changeFlagNum, tableData } from "./ui.js";
+import { startTimer, stopTimer } from "./timer.js";
+import { addRecord } from "./leaderboard.js";
 
 let flagArray = []; // 存储用户插旗的 DOM 元素
 
@@ -9,6 +11,8 @@ let flagArray = []; // 存储用户插旗的 DOM 元素
  * @param {*} cell 用户点击的 DOM 元素
  */
 export function searchArea(cell) {
+  startTimer();
+
   if (cell.classList.contains("mine")) {
     // 当前单元格是雷
     cell.classList.add("error");
@@ -120,6 +124,7 @@ function getDOM(obj) {
  * @param {*} cell 用户点击的 DOM 元素
  */
 export function startFlag(cell) {
+  startTimer();
   // 只有点击的 DOM 元素包含 canFlag 样式类，才能进行插旗操作
   if (cell.classList.contains("canFlag")) {
     if (!flagArray.includes(cell)) {
@@ -193,10 +198,19 @@ function isWin() {
  * @param {Boolean} status true 游戏胜利，false 游戏失败
  */
 function gameOver(status) {
-  const msg = status ? "游戏胜利，你找出了所有的雷～" : "游戏失败～";
-  setTimeout(() => {
-    alert(msg);
-  }, 100);
+  const time = stopTimer();
+  if (status) {
+    addRecord(getLevelKey(), time);
+    const msg = `游戏胜利！用时 ${time} 秒，你找出了所有的雷～`;
+    setTimeout(() => {
+      alert(msg);
+    }, 100);
+  } else {
+    const msg = "游戏失败～";
+    setTimeout(() => {
+      alert(msg);
+    }, 100);
+  }
 }
 
 /**
